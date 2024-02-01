@@ -1,0 +1,39 @@
+package lesson3;
+
+import java.util.Scanner;
+
+public class Lesson3HomeWork {
+
+    public static void main(String[] args) {
+        //--- 2 ---
+        char t = '\t';
+        char n = '\n';
+        String s = "Вход запрещен сегодня";
+        System.out.println(s.length());
+        System.out.println(s.replace("запрещен", "разрешен"));
+
+        //--- 3 ---
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("введите радиус окружности");
+        double r = scanner.nextDouble();
+        System.out.println("Длина: " + 2 * 3.14159 * r);
+
+
+        // 1---
+        System.out.println("Enter your name");
+        Scanner scanner = new Scanner(System.in);
+        String name = scanner.nextLine();
+        System.out.println("Your name is :" + name);
+        //в System.out.println("Enter your Lastname");
+        // int Lastname = scanner.nextInt();
+        //  System.out.println("Your Lastname is :" + Lastname); // не знаю почему не работает
+        //  System.out.println("Enter your age");
+        // String age = scanner.nextLine();// не понимаю что нужно сделать чтобы вывести третье значение
+        // System.out.println("You are " + age + "years old");
+
+
+    }
+
+
+}
+
