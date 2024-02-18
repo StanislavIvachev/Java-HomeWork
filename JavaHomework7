@@ -1,0 +1,54 @@
+package lesson7;
+
+import java.util.Arrays;
+
+public class Lessom7Homework {
+    public static void main(String[] args) {
+        int [] a = {1,-4, 2, -7, 12};
+        System.out.println("a before makeArrayElementsPositive: " + Arrays.toString(a));
+        makeArrayElementsPositive(a);
+        System.out.println("a after makeArrayElementsPositive: " + Arrays.toString(a));
+        System.out.println("hasNegative {1,-4, 2, -7, 12}: " + hasNegative(new int[]{1,-4, 2, -7, 12}));
+        System.out.println("hasNegative {1,4, 2, 7, 12}: " + hasNegative(new int[]{1,4, 2, 7, 12}));
+
+        int [] b = {1,3,10,12};
+        System.out.println("b before reverse: " + Arrays.toString(b));
+        reverse(b);
+        System.out.println("b after reverse: " + Arrays.toString(b));
+
+    }//main
+    public static void reverse(int[] b){
+        for (int i = 0; i < b.length/2 ; i++) {
+            int temp = b[i];
+            b[i] = b[b.length -1 - i];
+            b[b.length - 1 -i]= temp;
+        }
+    }
+
+
+
+
+
+
+    // Напишите функцию которая вернет true если в массиве есть отрицательные элементы
+// {1,-4, 2, -7, 12} -> true
+// {1,4, 2, 7, 12} -> false
+    public static boolean hasNegative(int [] a) {
+        for (int i = 0; i < a.length; i++) {
+            if(a[i] < 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+
+    public static void makeArrayElementsPositive(int [] b) {
+        for(int i = 0; i < b.length; i++) {
+            if(b[i] < 0) {
+                b[i] = -b[i];
+            }
+        }
+    }
+}
