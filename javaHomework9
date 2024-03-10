@@ -1,0 +1,60 @@
+package lesson9;
+
+public class Lesson9Homework {
+    public static void main(String[] args) {
+
+    }
+
+    // Напишите функцию, которая формирует sql запрос в виде строки из передаваемых в нее двух массивов строк.
+    //В первом массиве названия параметров, во втором значения соответствующих параметров, размер массивов params и vals всегда будет одинаков.
+    //Значения из массива vals равные null не должны использоваться при формировании запроса
+    //Например - параметры active и year не используются так как их значения null:
+    public static String formatSql(String [] params, String [] vals) {
+        StringBuilder b = new StringBuilder("SELECT * FROM users WHERE ");
+        for (int i = 0; i < params.length; i++) {
+            if(vals[i] != null) {
+                if(i != 0) {
+                    b.append(" AND ");
+                }
+                b.append(params[i]);
+                b.append(" = ");
+                b.append(quote(vals[i]));
+            }
+        }
+        b.append(";");
+        return b.toString();
+    }
+    public static String quote(String s) {
+        return "'" + s + "'";
+    }
+
+
+    // Напишите функцию, которая подсчитывает количество определенных символов в передаваемой в нее строке.
+    // Например:
+    //"London is a capital", 'o' -> 2 (подсчитываем число букв o)
+    //"London is a capital", ' ' -> 3 (подсчитываем число пробелов)
+    //"London is a capital", 'a' -> 3  (подсчитываем число букв a)
+    public static int countSymbols(String s, char c) {
+        int count = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if(s.charAt(i) == c) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+
+    // Напишите функцию которая возвращает строку из первых букв передаваемой в нее фразы
+    // Пример: "Однажды в студеную зимнюю пору" -> "Овсзп"
+    public static String concatFirstLetters(String s) {
+        StringBuilder b = new StringBuilder();
+        String [] w = s.split(" ");
+        for (int i = 0; i < w.length; i++) {
+            b.append(
+                    w[i].charAt(0)
+            );
+        }
+        return b.toString();
+    }
+}
