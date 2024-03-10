@@ -1,0 +1,67 @@
+package lesson8;
+
+import java.util.Arrays;
+
+public class Lesson8Homework {
+    public static void main(String[] args) {
+        int [] a = {1,5,7,4,-2};
+        System.out.println("getMin1 " + getMin1(a));
+        System.out.println("getSecondLargest " + getSecondLargest(a)); // 5
+
+
+
+    }
+    // Напишите функцию которая вернет минимальное значение из переданного в нее массива целых
+// {1,5,7,4,-2} -> -2
+    public static int getMin1(int [] a) {
+        int min = a[0];
+        for (int i = 0; i < a.length; i++) {
+            if(a[i] < min) {
+                min = a[i];
+            }
+        }
+        return min;
+    }
+    public static int getMin2(int [] a) {
+        Arrays.sort(a);
+        return a[0];
+    }
+
+    // Напишите функцию, которая вернет второе по величине значение из передаваемого в нее массива целых
+// Например: {1,5,7,4,-2} -> 5
+// Возможно, предварительная сортировка как-то поможет?
+    public static int getSecondLargest(int a[]) {
+        Arrays.sort(a);
+        return a[a.length - 2];
+    }
+
+    // На основе функции, сортирующей "пузырьком" массив целых,
+    // напишите функцию, которая отсортирует передаваемый в нее массив
+// студентов по возрасту.
+    public static void studentBubbleSort(int [] a) {
+        for (int i = 0; i < a.length; i++) {
+            for(int j = 1; j < a.length - i; j++) {
+                if(a[j-1] > a[j]) {
+                    int temp = a[j-1];
+                    a[j-1] = a[j];
+                    a[j] = temp;
+                }
+            }
+        }
+    }
+
+    // На основе функции, сортирующей "пузырьком" массив целых,
+// напишите функцию, которая отсортирует передаваемый в нее массив
+// студентов по возрасту.
+    public static void studentBubbleSort(Student [] a) {
+        for (int i = 0; i < a.length; i++) {
+            for(int j = 1; j < a.length - i; j++) {
+                if(a[j-1].getAge() > a[j].getAge()) {
+                    Student temp = a[j-1];
+                    a[j-1] = a[j];
+                    a[j] = temp;
+                }
+            }
+        }
+    }
+}
