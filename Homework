@@ -1,0 +1,29 @@
+package lesson11;
+
+public class Lesson11HomeWork {
+    public static void main(String[] args) {
+        System.out.println(
+                getSecondWord(null)
+        );
+        System.out.println(
+                getSecondWord("море")
+        );
+    }
+    // Напишите функцию, которая возвращает второе слово из передаваемой в нее строки
+    // Например, если в функцию передается фраза "зеленое море и синее небо",
+    // она должна возвратить слово "море"
+    // Предполагается что слова во фразе отделяются пробелами.
+    // Если второго слова во фразе нет, возвращать null.
+    // Напишите тесты в том числе и для краевых случаев - когда в
+    // функцию передается null, пустая строка и тп
+    public static String getSecondWord(String s) {
+        if(s == null) {
+            return null;
+        }
+        String [] words = s.split(" ");
+        if(words.length < 2) {
+            return null;
+        }
+        return words[1];
+    }
+}
